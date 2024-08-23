@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dropdown Search Bar</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #a4c4ff;
+        }
+
+        /* Search bar container */
+        .search-bar-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 50%;
+            max-width: 500px;
+        }
+
+        /* Dropdown button and styling */
+        .dropdown {
+            position: relative;
+            width: 150px;
+        }
+
+        .dropdown input[type="radio"] {
+            display: none;
+        }
+
+        .dropdown label {
+            display: block;
+            padding: 10px;
+            background-color: #b51a50;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px 0 0 5px;
+            position: relative;
+        }
+
+        .dropdown label::after {
+            content: "▼";
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .dropdown input[type="radio"]:checked + label + .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu label {
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #f1f1f1;
+            color: #333;
+        }
+
+        .dropdown-menu label:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Search input */
+        .search-bar input[type="text"] {
+            width: calc(100% - 160px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 0 5px 5px 0;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            padding: 10px;
+            background-color: #b51a50;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            right: 0;
+            height: 100%;
+        }
+
+        .search-bar button:hover {
+            background-color: #950f40;
+        }
+
+        /* Hiding other dropdowns and making the selected one visible */
+        .dropdown input[type="radio"]:checked ~ input[type="text"] {
+            display: block;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .search-bar-container {
+                flex-direction: column;
+                width: 90%;
+            }
+
+            .search-bar input[type="text"] {
+                width: 100%;
+                border-radius: 5px 5px 0 0;
+            }
+
+            .search-bar button {
+                width: 100%;
+                border-radius: 0 0 5px 5px;
+            }
+
+            .dropdown label {
+                border-radius: 5px;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="search-bar-container">
+        <div class="dropdown">
+            <input type="radio" id="everything" name="category" checked>
+            <label for="everything">Everything</label>
+            <div class="dropdown-menu">
+                <input type="radio" id="software" name="category">
+                <label for="software">Software development</label>
+                <input type="radio" id="webdev" name="category">
+                <label for="webdev">Web development</label>
+                <input type="radio" id="dataanalyst" name="category">
+                <label for="dataanalyst">Data Analyst</label>
+                <input type="radio" id="itconsultant" name="category">
+                <label for="itconsultant">IT Consultant</label>
+                <input type="radio" id="networkadmin" name="category">
+                <label for="networkadmin">Network Administrator</label>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchText" placeholder="Search Anything">
+            <button>🔍</button>
+        </div>
+    </div>
+
+</body>
+</html>

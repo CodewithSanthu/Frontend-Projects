@@ -1,0 +1,110 @@
+follow all the instructions and give the code . Also instruct how to run this code python idle software and made the functions names easy like made by human
+
+
+Step 1: Create the Python Quiz Game Project
+To build the Basic Quiz Game in Python as outlined in the document, we'll create a simple Python script using IDLE. I'll provide the Python code with clear and human-friendly function names.
+
+Step 2: Write the Code
+1. Define the Quiz Questions
+Create a Python script named quiz_game.py and start by defining the questions, options, and correct answers.
+
+python
+Copy code
+# quiz_game.py
+
+def get_questions():
+    # This function returns a list of quiz questions with options and correct answers.
+    questions = [
+        {
+            "question": "Which language is known as the 'Language of the Web'?",
+            "options": ["Java", "Python", "JavaScript", "C#"],
+            "answer": "JavaScript"
+        },
+        {
+            "question": "What year was Python first released?",
+            "options": ["1991", "1989", "2000", "1995"],
+            "answer": "1991"
+        },
+        {
+            "question": "Who developed the C programming language?",
+            "options": ["Bjarne Stroustrup", "Dennis Ritchie", "James Gosling", "Guido van Rossum"],
+            "answer": "Dennis Ritchie"
+        }
+    ]
+    return questions
+2. Display the Quiz Questions
+Next, write a function to display the quiz questions and get user input.
+
+python
+Copy code
+def ask_question(question_data):
+    # This function presents a single question to the user and returns whether the user's answer was correct.
+    print("\n" + question_data["question"])
+    for i, option in enumerate(question_data["options"], 1):
+        print(f"{i}. {option}")
+    
+    # Get user input
+    try:
+        user_choice = int(input("Your answer (choose the number): "))
+        while user_choice < 1 or user_choice > len(question_data["options"]):
+            user_choice = int(input("Invalid choice. Please choose a valid number: "))
+    except ValueError:
+        print("Invalid input! Please enter a number.")
+        return False
+    
+    # Check if the answer is correct
+    correct_answer = question_data["answer"]
+    if question_data["options"][user_choice - 1] == correct_answer:
+        print("Correct!")
+        return True
+    else:
+        print(f"Incorrect! The correct answer was: {correct_answer}")
+        return False
+3. Manage the Quiz Game Flow
+Now, create the main function to manage the quiz flow and calculate the final score.
+
+python
+Copy code
+def run_quiz():
+    # This function runs the entire quiz game and calculates the final score.
+    questions = get_questions()
+    score = 0
+    
+    print("Welcome to the Quiz Game!")
+    
+    for question_data in questions:
+        if ask_question(question_data):
+            score += 1
+    
+    print(f"\nYour final score is: {score} out of {len(questions)}")
+
+if __name__ == "__main__":
+    run_quiz()
+Step 3: Run the Quiz Game in Python IDLE
+To run this code in Python's IDLE:
+
+Open IDLE:
+
+You can find IDLE in the Start menu (on Windows) or launch it from your application directory (on macOS/Linux).
+Create and Save the Script:
+
+In IDLE, open a new file by going to File > New File.
+Copy and paste the provided code into this file.
+Save the file with a name like quiz_game.py.
+Run the Script:
+
+Press F5 or go to Run > Run Module to run the script.
+The console will start the quiz, displaying questions and prompting for answers.
+Summary
+This Python quiz game project allows you to practice Python fundamentals like loops, lists, functions, and user input handling. The code is structured with easy-to-understand function names, and running it in Python's IDLE is straightforward. The script handles user interaction smoothly, providing feedback for each answer and displaying the final score.
+
+
+
+
+
+
+
+
+More question examples?
+
+How to customize?

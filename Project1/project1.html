@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar with Dropdown</title>
+    <link rel="stylesheet" href="https://www.iconfinder.com/">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a0b6e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown button {
+            background-color: #aa3368;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            margin-top: 2px;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .search-box {
+            padding: 10px;
+            border: 2px solid #aa3368;
+            border-left: none;
+            border-radius: 0 5px 5px 0;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            padding: 10px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .search-button img {
+            width: 16px;
+            height: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-container">
+    <div class="dropdown">
+        <button img src="dropdown_arrow2-64.webp">Everything</button>
+        <div class="dropdown-content">
+            <a href="#">Everything</a>
+            <a href="#">Software development</a>
+            <a href="#">Web development</a>
+            <a href="#">Data Analyst</a>
+            <a href="#">IT Consultant</a>
+            <a href="#">Network administrator</a>
+        </div>
+    </div>
+    <input type="text" class="search-box" placeholder="Search Anything">
+    <button class="search-button">
+        <img src="search.icon.png" alt="Search Icon">
+    </button>
+</div>
+
+</body>
+</html>
